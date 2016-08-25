@@ -1,0 +1,9 @@
+# kicad ignore
+*.bak
+*.bck
+*.kicad_pcb-bak
+# *-rescue.lib
+ftp-lib-table
+
+# for external tools
+*.dsn

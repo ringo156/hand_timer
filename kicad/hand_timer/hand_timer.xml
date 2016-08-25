@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="D">
+  <design>
+    <source>//kyoko-sv.robotclub-kut.com/UserRedirect$/ringo/Documents/kiCad/hand_timer/hand_timer.sch</source>
+    <date>2016/08/05 15:42:16</date>
+    <tool>Eeschema 4.0.2-stable</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>hand_timer.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="PS1">
+      <value>KRC_Conn2_PowerIn</value>
+      <footprint>KUT_Connector:DF22-2P</footprint>
+      <libsource lib="KUT_Connector" part="KRC_Conn2_PowerIn"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5799F98A</tstamp>
+    </comp>
+    <comp ref="U1">
+      <value>ESP-WROOM-02</value>
+      <footprint>myfootprint:ESP-WROOM-02_aitendo</footprint>
+      <libsource lib="myLib" part="ESP-WROOM-02"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>579A0342</tstamp>
+    </comp>
+    <comp ref="SW3">
+      <value>SWITCH_INV</value>
+      <footprint>myfootprint:Toggle_Switch_1L</footprint>
+      <libsource lib="device" part="SWITCH_INV"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>579A11FC</tstamp>
+    </comp>
+    <comp ref="D1">
+      <value>LED</value>
+      <footprint>LEDs:LED-3MM</footprint>
+      <libsource lib="device" part="LED"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>579A1356</tstamp>
+    </comp>
+    <comp ref="R1">
+      <value>1kΩ</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <libsource lib="device" part="R_Small"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>579A13D5</tstamp>
+    </comp>
+    <comp ref="C3">
+      <value>220uF</value>
+      <footprint>Capacitors_ThroughHole:C_Radial_D10_L13_P5</footprint>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>579A140C</tstamp>
+    </comp>
+    <comp ref="VR1">
+      <value>TA48Mxx</value>
+      <footprint>myfootprint:TA48m33smd</footprint>
+      <libsource lib="KUT_PowerIC" part="TA48Mxx"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>579A169C</tstamp>
+    </comp>
+    <comp ref="C1">
+      <value>1uF</value>
+      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
+      <libsource lib="device" part="C_Small"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>579A187D</tstamp>
+    </comp>
+    <comp ref="C2">
+      <value>1uF</value>
+      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
+      <libsource lib="device" part="C_Small"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>579A1A4C</tstamp>
+    </comp>
+    <comp ref="SW1">
+      <value>Switch_DPST</value>
+      <footprint>myfootprint:tact_switch</footprint>
+      <libsource lib="device" part="Switch_DPST"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>579A28AC</tstamp>
+    </comp>
+    <comp ref="SW2">
+      <value>Switch_SPDT_x2</value>
+      <footprint>KUT_Switch:SlideSwitch_DIP</footprint>
+      <libsource lib="device" part="Switch_SPDT_x2"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>579A39AC</tstamp>
+    </comp>
+    <comp ref="P1">
+      <value>CONN_01X03</value>
+      <footprint>Socket_Strips:Socket_Strip_Straight_1x03</footprint>
+      <libsource lib="conn" part="CONN_01X03"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>579A4029</tstamp>
+    </comp>
+    <comp ref="U2">
+      <value>MPM80</value>
+      <footprint>myfootprint:MPM80</footprint>
+      <libsource lib="myLib" part="MPM80"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>579A5F76</tstamp>
+    </comp>
+    <comp ref="R3">
+      <value>1kΩ</value>
+      <footprint>Resistors_ThroughHole:Resistor_Horizontal_RM7mm</footprint>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>579A642A</tstamp>
+    </comp>
+    <comp ref="R2">
+      <value>8.2kΩ</value>
+      <footprint>Resistors_ThroughHole:Resistor_Horizontal_RM7mm</footprint>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>579A64C1</tstamp>
+    </comp>
+    <comp ref="C4">
+      <value>220uF</value>
+      <footprint>Capacitors_ThroughHole:C_Radial_D10_L13_P5</footprint>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>579A6ECC</tstamp>
+    </comp>
+    <comp ref="P2">
+      <value>CONN_01X03</value>
+      <footprint>Socket_Strips:Socket_Strip_Straight_1x03</footprint>
+      <libsource lib="conn" part="CONN_01X03"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>579A8293</tstamp>
+    </comp>
+    <comp ref="P3">
+      <value>CONN_01X04</value>
+      <footprint>Socket_Strips:Socket_Strip_Straight_1x04</footprint>
+      <libsource lib="conn" part="CONN_01X04"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>579AADD3</tstamp>
+    </comp>
+    <comp ref="P4">
+      <value>KRC_Conn4_SIG</value>
+      <footprint>KUT_Connector:DF1E-4P_Streight</footprint>
+      <libsource lib="KUT_Connector" part="KRC_Conn4_SIG"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>57A38313</tstamp>
+    </comp>
+    <comp ref="P5">
+      <value>KRC_Conn3_SIG</value>
+      <footprint>KUT_Connector:DF1E-3P_Straight</footprint>
+      <libsource lib="KUT_Connector" part="KRC_Conn3_SIG"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>57A3B79D</tstamp>
+    </comp>
+    <comp ref="SW4">
+      <value>Switch_DPST</value>
+      <footprint>myfootprint:tact_switch</footprint>
+      <libsource lib="device" part="Switch_DPST"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>57A42934</tstamp>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="device" part="C">
+      <description>Unpolarized capacitor</description>
+      <footprints>
+        <fp>C?</fp>
+        <fp>C_????_*</fp>
+        <fp>C_????</fp>
+        <fp>SMD*_c</fp>
+        <fp>Capacitor*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="conn" part="CONN_01X03">
+      <description>Connector 01x03</description>
+      <footprints>
+        <fp>Pin_Header_Straight_1X03</fp>
+        <fp>Pin_Header_Angled_1X03</fp>
+        <fp>Socket_Strip_Straight_1X03</fp>
+        <fp>Socket_Strip_Angled_1X03</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">P</field>
+        <field name="Value">CONN_01X03</field>
+      </fields>
+      <pins>
+        <pin num="1" name="P1" type="passive"/>
+        <pin num="2" name="P2" type="passive"/>
+        <pin num="3" name="P3" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="conn" part="CONN_01X04">
+      <description>Connector 01x04</description>
+      <footprints>
+        <fp>Pin_Header_Straight_1X04</fp>
+        <fp>Pin_Header_Angled_1X04</fp>
+        <fp>Socket_Strip_Straight_1X04</fp>
+        <fp>Socket_Strip_Angled_1X04</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">P</field>
+        <field name="Value">CONN_01X04</field>
+      </fields>
+      <pins>
+        <pin num="1" name="P1" type="passive"/>
+        <pin num="2" name="P2" type="passive"/>
+        <pin num="3" name="P3" type="passive"/>
+        <pin num="4" name="P4" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="C_Small">
+      <description>Unpolarized capacitor</description>
+      <footprints>
+        <fp>C?</fp>
+        <fp>C_????_*</fp>
+        <fp>C_????</fp>
+        <fp>SMD*_c</fp>
+        <fp>Capacitor*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C_Small</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="myLib" part="ESP-WROOM-02">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">ESP-WROOM-02</field>
+      </fields>
+      <pins>
+        <pin num="1" name="3.3V" type="power_in"/>
+        <pin num="2" name="EN" type="passive"/>
+        <pin num="3" name="IO14" type="BiDi"/>
+        <pin num="4" name="IO12" type="BiDi"/>
+        <pin num="5" name="IO13" type="BiDi"/>
+        <pin num="6" name="IO15" type="BiDi"/>
+        <pin num="7" name="IO2" type="BiDi"/>
+        <pin num="8" name="IO0" type="BiDi"/>
+        <pin num="9" name="GND" type="power_in"/>
+        <pin num="10" name="IO4" type="BiDi"/>
+        <pin num="11" name="RXD" type="input"/>
+        <pin num="12" name="TXD" type="output"/>
+        <pin num="13" name="GND" type="power_in"/>
+        <pin num="14" name="IO5" type="BiDi"/>
+        <pin num="15" name="RST" type="passive"/>
+        <pin num="16" name="TOUT" type="passive"/>
+        <pin num="17" name="IO16" type="BiDi"/>
+        <pin num="18" name="GND" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="KUT_Connector" part="KRC_Conn2_PowerIn">
+      <description>HIROSE DF22L-2P RED MAX20A</description>
+      <fields>
+        <field name="Reference">PS</field>
+        <field name="Value">KRC_Conn2_PowerIn</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Vin+" type="power_out"/>
+        <pin num="2" name="Vin-" type="power_out"/>
+      </pins>
+    </libpart>
+    <libpart lib="KUT_Connector" part="KRC_Conn3_SIG">
+      <description>KUTRobotClub 3pole Connector HIROSE DF1E(C)-3P-2.5DS(A)</description>
+      <fields>
+        <field name="Reference">P</field>
+        <field name="Value">KRC_Conn3_SIG</field>
+      </fields>
+      <pins>
+        <pin num="1" name="GND" type="power_in"/>
+        <pin num="2" name="VCC" type="power_in"/>
+        <pin num="3" name="SIG" type="BiDi"/>
+      </pins>
+    </libpart>
+    <libpart lib="KUT_Connector" part="KRC_Conn4_SIG">
+      <description>KUTRobotClub 4pole General Connector HIROSE DF1E(C)-4P-2.5DS(A)</description>
+      <fields>
+        <field name="Reference">P</field>
+        <field name="Value">KRC_Conn4_SIG</field>
+      </fields>
+      <pins>
+        <pin num="1" name="GND" type="power_in"/>
+        <pin num="2" name="VCC" type="power_in"/>
+        <pin num="3" name="SIG1" type="passive"/>
+        <pin num="4" name="SIG2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="LED">
+      <footprints>
+        <fp>LED-3MM</fp>
+        <fp>LED-5MM</fp>
+        <fp>LED-10MM</fp>
+        <fp>LED-0603</fp>
+        <fp>LED-0805</fp>
+        <fp>LED-1206</fp>
+        <fp>LEDV</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">LED</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="myLib" part="MPM80">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">MPM80</field>
+      </fields>
+      <pins>
+        <pin num="1" name="NC" type="input"/>
+        <pin num="2" name="Vin" type="power_in"/>
+        <pin num="3" name="P-GND" type="power_in"/>
+        <pin num="4" name="S-GND" type="power_in"/>
+        <pin num="5" name="Vo" type="power_out"/>
+        <pin num="6" name="FB" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="R">
+      <description>Resistor</description>
+      <footprints>
+        <fp>R_*</fp>
+        <fp>Resistor_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="R_Small">
+      <description>Resistor</description>
+      <footprints>
+        <fp>Resistor_*</fp>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R_Small</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="SWITCH_INV">
+      <description>inverseur</description>
+      <fields>
+        <field name="Reference">SW</field>
+        <field name="Value">SWITCH_INV</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+        <pin num="3" name="3" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="Switch_DPST">
+      <description>Double Pole Single Throw (DPST) Switch</description>
+      <fields>
+        <field name="Reference">SW</field>
+        <field name="Value">Switch_DPST</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="input"/>
+        <pin num="2" name="2" type="input"/>
+        <pin num="3" name="3" type="input"/>
+        <pin num="4" name="4" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="Switch_SPDT_x2">
+      <description>Double Single Pole Double Throw (SPDT) switch</description>
+      <fields>
+        <field name="Reference">SW</field>
+        <field name="Value">Switch_SPDT_x2</field>
+      </fields>
+      <pins>
+        <pin num="1" name="A" type="passive"/>
+        <pin num="2" name="B" type="passive"/>
+        <pin num="3" name="C" type="passive"/>
+        <pin num="4" name="A" type="passive"/>
+        <pin num="5" name="B" type="passive"/>
+        <pin num="6" name="C" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="KUT_PowerIC" part="TA48Mxx">
+      <description>TOSHIBA TA48Mxx Regulator Input29V MAX0.5A</description>
+      <fields>
+        <field name="Reference">VR</field>
+        <field name="Value">TA48Mxx</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Vin" type="power_in"/>
+        <pin num="2" name="Vout" type="power_out"/>
+        <pin num="3" name="GND" type="power_in"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="device">
+      <uri>C:\Program Files\KiCad\share\kicad\library\device.lib</uri>
+    </library>
+    <library logical="conn">
+      <uri>C:\Program Files\KiCad\share\kicad\library\conn.lib</uri>
+    </library>
+    <library logical="KUT_Connector">
+      <uri>\\kyoko-sv.robotclub-kut.com\UserRedirect$\ringo\Documents\kiCad\library\LIB_Components-master\KUT_Connector.lib</uri>
+    </library>
+    <library logical="KUT_PowerIC">
+      <uri>\\kyoko-sv.robotclub-kut.com\UserRedirect$\ringo\Documents\kiCad\library\LIB_Components-master\KUT_PowerIC.lib</uri>
+    </library>
+    <library logical="myLib">
+      <uri>\\kyoko-sv.robotclub-kut.com\UserRedirect$\ringo\Documents\kiCad\library\mycomponents\myLib.lib</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="RST">
+      <node ref="SW1" pin="1"/>
+      <node ref="SW1" pin="3"/>
+      <node ref="U1" pin="15"/>
+    </net>
+    <net code="2" name="MODE">
+      <node ref="U1" pin="8"/>
+      <node ref="SW2" pin="2"/>
+      <node ref="SW2" pin="5"/>
+    </net>
+    <net code="3" name="GND">
+      <node ref="VR1" pin="3"/>
+      <node ref="C2" pin="2"/>
+      <node ref="C1" pin="2"/>
+      <node ref="P1" pin="3"/>
+      <node ref="SW4" pin="4"/>
+      <node ref="SW4" pin="2"/>
+      <node ref="U2" pin="3"/>
+      <node ref="P4" pin="1"/>
+      <node ref="U1" pin="18"/>
+      <node ref="SW2" pin="3"/>
+      <node ref="P2" pin="1"/>
+      <node ref="C4" pin="2"/>
+      <node ref="SW2" pin="6"/>
+      <node ref="P3" pin="4"/>
+      <node ref="R3" pin="2"/>
+      <node ref="R1" pin="2"/>
+      <node ref="SW1" pin="4"/>
+      <node ref="SW1" pin="2"/>
+      <node ref="U1" pin="13"/>
+      <node ref="C3" pin="2"/>
+      <node ref="U1" pin="9"/>
+      <node ref="U2" pin="4"/>
+      <node ref="PS1" pin="2"/>
+      <node ref="P5" pin="1"/>
+    </net>
+    <net code="4" name="Servo">
+      <node ref="U1" pin="14"/>
+      <node ref="P1" pin="1"/>
+    </net>
+    <net code="5" name="+3V3">
+      <node ref="P4" pin="2"/>
+      <node ref="U1" pin="1"/>
+      <node ref="P3" pin="1"/>
+      <node ref="SW2" pin="1"/>
+      <node ref="SW2" pin="4"/>
+      <node ref="VR1" pin="2"/>
+      <node ref="C2" pin="1"/>
+    </net>
+    <net code="6" name="SDA">
+      <node ref="P3" pin="3"/>
+      <node ref="U1" pin="10"/>
+      <node ref="P4" pin="4"/>
+    </net>
+    <net code="7" name="SCL">
+      <node ref="P3" pin="2"/>
+      <node ref="U1" pin="3"/>
+      <node ref="P4" pin="3"/>
+    </net>
+    <net code="8" name="+12V">
+      <node ref="D1" pin="2"/>
+      <node ref="SW3" pin="3"/>
+      <node ref="C1" pin="1"/>
+      <node ref="U2" pin="2"/>
+      <node ref="VR1" pin="1"/>
+      <node ref="C3" pin="1"/>
+    </net>
+    <net code="9" name="VCC">
+      <node ref="PS1" pin="1"/>
+      <node ref="SW3" pin="1"/>
+      <node ref="SW3" pin="2"/>
+    </net>
+    <net code="10" name="SW">
+      <node ref="P5" pin="2"/>
+      <node ref="SW4" pin="1"/>
+      <node ref="SW4" pin="3"/>
+      <node ref="U1" pin="17"/>
+    </net>
+    <net code="11" name="Net-(P5-Pad3)">
+      <node ref="P5" pin="3"/>
+    </net>
+    <net code="12" name="Net-(U1-Pad2)">
+      <node ref="U1" pin="2"/>
+    </net>
+    <net code="13" name="Net-(U2-Pad1)">
+      <node ref="U2" pin="1"/>
+    </net>
+    <net code="14" name="Net-(R2-Pad2)">
+      <node ref="R3" pin="1"/>
+      <node ref="R2" pin="2"/>
+      <node ref="U2" pin="6"/>
+    </net>
+    <net code="15" name="RX">
+      <node ref="U1" pin="11"/>
+      <node ref="P2" pin="2"/>
+    </net>
+    <net code="16" name="TX">
+      <node ref="U1" pin="12"/>
+      <node ref="P2" pin="3"/>
+    </net>
+    <net code="17" name="Net-(D1-Pad1)">
+      <node ref="R1" pin="1"/>
+      <node ref="D1" pin="1"/>
+    </net>
+    <net code="18" name="Net-(U1-Pad7)">
+      <node ref="U1" pin="7"/>
+    </net>
+    <net code="19" name="Net-(U1-Pad16)">
+      <node ref="U1" pin="16"/>
+    </net>
+    <net code="20" name="Net-(U1-Pad6)">
+      <node ref="U1" pin="6"/>
+    </net>
+    <net code="21" name="Net-(U1-Pad5)">
+      <node ref="U1" pin="5"/>
+    </net>
+    <net code="22" name="Net-(U1-Pad4)">
+      <node ref="U1" pin="4"/>
+    </net>
+    <net code="23" name="+9V">
+      <node ref="U2" pin="5"/>
+      <node ref="P1" pin="2"/>
+      <node ref="C4" pin="1"/>
+      <node ref="R2" pin="1"/>
+    </net>
+  </nets>
+</export>
