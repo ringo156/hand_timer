@@ -18,8 +18,8 @@ const int servoPin = 5;
 char val[16];
 int8_t hourOld;
 
-char ssid[] = "********";  //  your network SSID (name)
-char pass[] = "********";  // your network password
+char ssid[] = "ringo-home";  //  your network SSID (name)
+char pass[] = "Schoolidolproject";  // your network password
 
 unsigned int localPort = 2390;      // local port to listen for UDP packets
 
@@ -34,7 +34,39 @@ const int NTP_PACKET_SIZE = 48; // NTP time stamp is in the first 48 bytes of th
 byte packetBuffer[ NTP_PACKET_SIZE]; //buffer to hold incoming and outgoing packets
 
 // A UDP instance to let us send and receive packets over UDP
-WiFiUDP udp;
+//WiFiUDP udp;
+static WiFiUDP udp;
+static const int kPortUdp_logger = 2390;
+static bool s_isWiFiConnected = false;
+void WiFi_setup(){
+  // WiFi.mode(WIFI_STA);
+   bool bfOk = false;
+  WiFi.begin(ssid, pass);
+#if 1
+  for(int loop = 0; loop < 20; loop++) {
+    if (WiFi.status() == WL_CONNECTED) {
+      s_isWiFiConnected = true;
+      break;
+    }
+    delay(500); // msec
+    Serial.print(".");
+  }
+  if (s_isWiFiConnected) {
+    udp.begin(kPortUdp_logger);  
+  } else {
+    WiFi.disconnect();
+  }
+#else
+  while ( WiFi.status() != WL_CONNECTED) {
+    delay(500); // msec  
+  }
+  udp.begin(kPortUdp_logger);
+#endif 
+  Serial.println("");
+  Serial.println("WiFi connected");  
+  Serial.println("IP address: ");
+  Serial.println(WiFi.localIP());
+}
 
 void setReadyForTicker() {
   // フラグを立てるだけ
@@ -56,37 +88,33 @@ void doBlockingIO() {
   readyForTicker = false;
 }
 
-void setup() {
-  Serial.begin(115200);
-  Serial.println();
-  Serial.println();
+// send an NTP request to the time server at the given address
+unsigned long sendNTPpacket(IPAddress& address)
+{
+  Serial.println("sending NTP packet...");
+  // set all bytes in the buffer to 0
+  memset(packetBuffer, 0, NTP_PACKET_SIZE);
+  // Initialize values needed to form NTP request
+  // (see URL above for details on the packets)
+  packetBuffer[0] = 0b11100011;   // LI, Version, Mode
+  packetBuffer[1] = 0;     // Stratum, or type of clock
+  packetBuffer[2] = 6;     // Polling Interval
+  packetBuffer[3] = 0xEC;  // Peer Clock Precision
+  // 8 bytes of zero for Root Delay & Root Dispersion
+  packetBuffer[12]  = 49;
+  packetBuffer[13]  = 0x4E;
+  packetBuffer[14]  = 49;
+  packetBuffer[15]  = 52;
 
-  // We start by connecting to a WiFi network
-  Serial.print("Connecting to ");
-  Serial.println(ssid);
-  WiFi.begin(ssid, pass);
-  
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
-    Serial.print(".");
-  }
-  Serial.println("");
-  
-  Serial.println("WiFi connected");
-  Serial.println("IP address: ");
-  Serial.println(WiFi.localIP());
+  // all NTP fields have been given values, now
+  // you can send a packet requesting a timestamp:
+  udp.beginPacket(address, 123); //NTP requests are to port 123
+  udp.write(packetBuffer, NTP_PACKET_SIZE);
+  udp.endPacket();
+}
 
-  Serial.println("Starting UDP");
-  udp.begin(localPort);
-  Serial.print("Local port: ");
-  Serial.println(udp.localPort());
-
-  //LCD
-  Wire.begin(4, 14);//sda,slc
-  LCD.Init(LCD_NOT_ICON,32,LCD_VDD3V) ;
-  LCD.SetCursor(0,0);
-  LCD.Puts("HelloWorld!");
-
+void time_get()
+{
   int cb;
   while(1)
   {
@@ -146,7 +174,27 @@ void setup() {
     Serial.print(':');
     Serial.println(second());
     Serial.println();
-  hourOld = hour();
+    hourOld = hour();  
+}
+
+void setup() {
+  Serial.begin(115200);
+  delay(10);
+  WiFi_setup();
+  /*
+  Serial.println("Starting UDP");
+  udp.begin(localPort);
+  Serial.print("Local port: ");
+  Serial.println(udp.localPort());
+  */
+
+  //LCD
+  Wire.begin(4, 14);//sda,slc
+  LCD.Init(LCD_NOT_ICON,32,LCD_VDD3V) ;
+  LCD.SetCursor(0,0);
+  LCD.Puts("HelloWorld!");
+
+  time_get();
   
   // 1 秒ごとに setReadyForTicker() を呼び出す
   ticker.attach_ms(100, setReadyForTicker);
@@ -222,27 +270,4 @@ void servo_step()
   }
 }
 
-// send an NTP request to the time server at the given address
-unsigned long sendNTPpacket(IPAddress& address)
-{
-  Serial.println("sending NTP packet...");
-  // set all bytes in the buffer to 0
-  memset(packetBuffer, 0, NTP_PACKET_SIZE);
-  // Initialize values needed to form NTP request
-  // (see URL above for details on the packets)
-  packetBuffer[0] = 0b11100011;   // LI, Version, Mode
-  packetBuffer[1] = 0;     // Stratum, or type of clock
-  packetBuffer[2] = 6;     // Polling Interval
-  packetBuffer[3] = 0xEC;  // Peer Clock Precision
-  // 8 bytes of zero for Root Delay & Root Dispersion
-  packetBuffer[12]  = 49;
-  packetBuffer[13]  = 0x4E;
-  packetBuffer[14]  = 49;
-  packetBuffer[15]  = 52;
 
-  // all NTP fields have been given values, now
-  // you can send a packet requesting a timestamp:
-  udp.beginPacket(address, 123); //NTP requests are to port 123
-  udp.write(packetBuffer, NTP_PACKET_SIZE);
-  udp.endPacket();
-}
