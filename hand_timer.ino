@@ -1,3 +1,7 @@
+/*
+ * Generic ESP8266 Module
+ * 
+ */
 
 #include <ESP8266WiFi.h>
 #include <WiFiUdp.h>
@@ -17,9 +21,10 @@ bool endFlag = false;
 const int servoPin = 5;
 char val[16];
 int8_t hourOld;
+int8_t minOld;
 
-char ssid[] = "ringo-home";  //  your network SSID (name)
-char pass[] = "Schoolidolproject";  // your network password
+char ssid[] = "*********";  //  your network SSID (name)
+char pass[] = "*********";  // your network password
 
 unsigned int localPort = 2390;      // local port to listen for UDP packets
 
@@ -28,9 +33,7 @@ unsigned int localPort = 2390;      // local port to listen for UDP packets
 //IPAddress timeServer(129, 6, 15, 28); // time.nist.gov NTP server
 IPAddress timeServerIP; // time.nist.gov NTP server address
 const char* ntpServerName = "time.nist.gov";
-
 const int NTP_PACKET_SIZE = 48; // NTP time stamp is in the first 48 bytes of the message
-
 byte packetBuffer[ NTP_PACKET_SIZE]; //buffer to hold incoming and outgoing packets
 
 // A UDP instance to let us send and receive packets over UDP
@@ -175,27 +178,22 @@ void time_get()
     Serial.println(second());
     Serial.println();
     hourOld = hour();  
+    //minOld = minute();
 }
 
 void setup() {
   Serial.begin(115200);
   delay(10);
   WiFi_setup();
-  /*
-  Serial.println("Starting UDP");
-  udp.begin(localPort);
-  Serial.print("Local port: ");
-  Serial.println(udp.localPort());
-  */
-
   //LCD
   Wire.begin(4, 14);//sda,slc
   LCD.Init(LCD_NOT_ICON,32,LCD_VDD3V) ;
   LCD.SetCursor(0,0);
   LCD.Puts("HelloWorld!");
-
-  time_get();
   
+  time_get();
+
+  WiFi.disconnect();
   // 1 秒ごとに setReadyForTicker() を呼び出す
   ticker.attach_ms(100, setReadyForTicker);
   // ミリ秒単位も指定出来ます
@@ -208,10 +206,12 @@ void loop() {
     doBlockingIO();
   }
   //更新
- if(hourOld != hour())
+  //18時と19時と22時に動く
+ if((hourOld != hour())&&((hour()==18)||(hour()==19)||(hour()==22)))
  {
   servoFlag = true;
-  hourOld = hour();
+  Serial.println("Servo on");
+  minOld = minute();
  }
   LCD.SetCursor(0,0);
   sprintf(val,"%4d/%2d/%2d",year(), month(), day());
