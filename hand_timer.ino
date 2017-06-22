@@ -19,6 +19,8 @@ bool readyForTicker = false;
 bool servoFlag = false;
 bool endFlag = false;
 const int servoPin = 5;
+const int ledPin = 13;
+const int switchPin = 12;
 char val[16];
 int8_t hourOld;
 int8_t minOld;
@@ -157,7 +159,7 @@ void time_get()
     // Unix time starts on Jan 1 1970. In seconds, that's 2208988800:
     const unsigned long seventyYears = 2208988800UL;
     // subtract seventy years:
-    unsigned long epoch = secsSince1900 - seventyYears;
+    unsigned long epoch = secsSince1900 - seventyYears + 10;
     // print Unix time:
     Serial.println(epoch);
 
@@ -177,11 +179,13 @@ void time_get()
     Serial.print(':');
     Serial.println(second());
     Serial.println();
-    hourOld = hour();  
-    //minOld = minute();
+    hourOld = minute();
+    minOld = 10;
 }
 
 void setup() {
+  pinMode(ledPin, OUTPUT);
+  digitalWrite(ledPin, HIGH);
   Serial.begin(115200);
   delay(10);
   WiFi_setup();
@@ -196,9 +200,8 @@ void setup() {
   WiFi.disconnect();
   // 1 秒ごとに setReadyForTicker() を呼び出す
   ticker.attach_ms(100, setReadyForTicker);
-  // ミリ秒単位も指定出来ます
-  // ticker.attach_ms(60000, setReadyForTicker);
   LCD.Clear();
+  digitalWrite(ledPin, LOW);
 }
 
 void loop() {
@@ -207,11 +210,21 @@ void loop() {
   }
   //更新
   //18時と19時と22時に動く
- if((hourOld != hour())&&((hour()==18)||(hour()==19)||(hour()==22)))
+ if((hourOld != hour())&&(((hour()==19)&&(minute()==0))||((hour()==19)&&(minute()==30))||(hour()==18)||(hour()==22)||(hour()==8)))
  {
-  servoFlag = true;
-  Serial.println("Servo on");
-  minOld = minute();
+  if(hour()==19)
+  {
+    if((minOld != minute())&&((minute() == 0)||(minute() == 30))){
+      servoFlag = true;
+      Serial.println("Servo on");
+      minOld = minute();
+    }
+  }
+  else{
+    servoFlag = true;
+    Serial.println("Servo on");
+    hourOld = hour();
+  }
  }
   LCD.SetCursor(0,0);
   sprintf(val,"%4d/%2d/%2d",year(), month(), day());
@@ -229,6 +242,7 @@ void servo_step()
   count++;
   if(servo_step == 0)
   {
+    digitalWrite(ledPin, HIGH);
     servo.attach(servoPin);
     servo.write(110);
     limit = 3;
@@ -257,6 +271,7 @@ void servo_step()
   }
   else if(servo_step == 5)
   {
+    digitalWrite(ledPin, LOW);
     servo.detach();
     endFlag = true;
       servo_step = 0;
@@ -269,5 +284,3 @@ void servo_step()
       count = 0;
   }
 }
-
-
