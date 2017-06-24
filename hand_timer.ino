@@ -25,8 +25,8 @@ char val[16];
 int8_t hourOld;
 int8_t minOld;
 
-char ssid[] = "*********";  //  your network SSID (name)
-char pass[] = "*********";  // your network password
+char ssid[] = "********";  //  your network SSID (name)
+char pass[] = "********";  // your network password
 
 unsigned int localPort = 2390;      // local port to listen for UDP packets
 
@@ -208,11 +208,10 @@ void loop() {
   if (readyForTicker) {
     doBlockingIO();
   }
-  //更新
-  //18時と19時と22時に動く
- if((hourOld != hour())&&(((hour()==19)&&(minute()==0))||((hour()==19)&&(minute()==30))||(hour()==18)||(hour()==22)||(hour()==8)))
+  //8:00,8:30,12:00,18:00,19:00,22:00に鳴る
+ if((hourOld != hour())&&(((hour()==8)&&(minute()==0))||((hour()==8)&&(minute()==30))||(hour()==12)||(hour()==18)||(hour()==19)||(hour()==22)))
  {
-  if(hour()==19)
+  if(hour()==8)
   {
     if((minOld != minute())&&((minute() == 0)||(minute() == 30))){
       servoFlag = true;
@@ -225,6 +224,9 @@ void loop() {
     Serial.println("Servo on");
     hourOld = hour();
   }
+ }
+ if(digitalRead(switchPin) == LOW){
+  servoFlag = true;
  }
   LCD.SetCursor(0,0);
   sprintf(val,"%4d/%2d/%2d",year(), month(), day());
@@ -245,12 +247,12 @@ void servo_step()
     digitalWrite(ledPin, HIGH);
     servo.attach(servoPin);
     servo.write(110);
-    limit = 3;
+    limit = 2;
   }
   else if(servo_step == 1)
   {
     servo.detach();
-    limit = 10;
+    limit = 11;
   }
   else if(servo_step == 2)
   {
@@ -267,7 +269,7 @@ void servo_step()
   {
     servo.attach(servoPin);
     servo.write(110);
-    limit = 3;
+    limit = 2;
   }
   else if(servo_step == 5)
   {
